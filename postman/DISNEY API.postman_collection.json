@@ -1,0 +1,4978 @@
+{
+	"info": {
+		"_postman_id": "067779a2-3daf-40c1-90b0-e3d4825c4a7e",
+		"name": "DISNEY API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "USER API REQUEST",
+			"item": [
+				{
+					"name": "SIGN UP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"user@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success signUp",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"user@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 02:49:35 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Error Invalid data sent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"usergmail.com\",\r\n    \"password\":\"12345678123456786\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/signup",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 02:50:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid data sent\",\n    \"details\": [\n        \"username: Username must be an email\",\n        \"password: The password must be between 8 and 16 characters long\"\n    ],\n    \"status\": \"BAD_REQUEST\",\n    \"timestamp\": \"2022-01-08T02:50:20.214+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "SIGN IN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.environment.set(\"token\", jsonData.jwt);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"user@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error Bad credentials",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"user@gmail.com\",\r\n    \"password\":\"55555555\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/signin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jan 2022 19:28:49 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Bad credentials\",\n    \"details\": [\n        \"Incorrect username or password\"\n    ],\n    \"status\": \"UNAUTHORIZED\",\n    \"timestamp\": \"2022-01-10T19:28:49.582+00:00\"\n}"
+						},
+						{
+							"name": "Success signIn",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"user@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/signin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Jan 2022 15:26:10 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jwt\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGdtYWlsLmNvbSIsImV4cCI6MTY0MjAzNzE2OSwiaWF0IjoxNjQyMDAxMTY5fQ.YuOPggzYADXRahxcKRtk775VDkw9Iyg6lNAk80ZcBs8\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "CHARACTER API REQUEST",
+			"item": [
+				{
+					"name": "GET ALL",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service returns all characters saved in the database."
+					},
+					"response": [
+						{
+							"name": "Example characters list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjA3MzcyLCJpYXQiOjE2NDE1NzEzNzJ9._yrdMgOH20IKWJggflJAaIRWwViLJIT0MYs5S4Wc60s",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 20:07:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"image\": \"/src/main/resources/static/img/character-MickeyMouse.png\",\n        \"name\": \"Mickey Mouse\"\n    },\n    {\n        \"id\": 2,\n        \"image\": \"/src/main/resources/static/img/character-Woody.png\",\n        \"name\": \"Woody\"\n    },\n    {\n        \"id\": 3,\n        \"image\": \"/src/main/resources/static/img/character-BuzzLightyear.png\",\n        \"name\": \"Buzz Lightyear\"\n    },\n    {\n        \"id\": 4,\n        \"image\": \"/src/main/resources/static/img/character-TroyBolton.jpg\",\n        \"name\": \"Troy Bolton\"\n    },\n    {\n        \"id\": 5,\n        \"image\": \"/src/main/resources/static/img/character-Simba.png\",\n        \"name\": \"Simba\"\n    },\n    {\n        \"id\": 6,\n        \"image\": \"/src/main/resources/static/img/character-DonaldDuck.png\",\n        \"name\": \"Donald Duck\"\n    }\n]"
+						},
+						{
+							"name": "Error Access Denied",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "129"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jan 2022 19:30:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Access Denied\",\n    \"details\": \"A valid token is required\",\n    \"status\": \"FORBIDDEN\",\n    \"timestamp\": \"Mon Jan 10 16:30:34 ART 2022\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET ONE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service returns one character with the {id} specified. The character shows his movies."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjA3MzcyLCJpYXQiOjE2NDE1NzEzNzJ9._yrdMgOH20IKWJggflJAaIRWwViLJIT0MYs5S4Wc60s",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 20:31:24 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"image\": \"/src/main/resources/static/img/character-MickeyMouse.png\",\n    \"name\": \"Mickey Mouse\",\n    \"age\": 94,\n    \"weight\": 10,\n    \"story\": \"Mickey Mouse is a cartoon character created in 1928 by Walt Disney, and is the mascot of The Walt Disney Company. An anthropomorphic mouse who typically wears red shorts, large yellow shoes, and white gloves, Mickey is one of the world's most recognizable fictional characters.\",\n    \"movies\": []\n}"
+						},
+						{
+							"name": "Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjA3MzcyLCJpYXQiOjE2NDE1NzEzNzJ9._yrdMgOH20IKWJggflJAaIRWwViLJIT0MYs5S4Wc60s",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"10"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 20:33:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The character with id 10 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-07T20:33:16.157+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\": \"/src/main/resources/static/img/character-Woody.png\",\r\n    \"name\": \"Woody\",\r\n    \"age\": 25,\r\n    \"weight\": 1,\r\n    \"story\": \"Sheriff Woody is a fictional pullstring cowboy rag doll who appears in the Disney/Pixar Toy Story franchise. In the movies, Woody is one of the main protagonist characters along with Buzz Lightyear.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/characters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. A successful creation will return the character with its id."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\":\"/src/main/resources/static/img/character-DonaldDuck.png\",\r\n    \"name\": \"Donald Duck\",\r\n    \"age\": 10,\r\n    \"weight\": 20,\r\n    \"story\": \"Donald Fauntleroy Duck is a cartoon character created by The Walt Disney Company. Donald is an anthropomorphic white duck with a yellow-orange bill, legs, and feet. He typically wears a sailor shirt and cap with a bow tie.\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/characters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 19:28:56 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 6,\n    \"image\": \"/src/main/resources/static/img/character-DonaldDuck.png\",\n    \"name\": \"Donald Duck\",\n    \"age\": 10,\n    \"weight\": 20,\n    \"story\": \"Donald Fauntleroy Duck is a cartoon character created by The Walt Disney Company. Donald is an anthropomorphic white duck with a yellow-orange bill, legs, and feet. He typically wears a sailor shirt and cap with a bow tie.\",\n    \"movies\": null\n}"
+						},
+						{
+							"name": "Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\":\"/src/main/resources/static/img/character-DonaldDuck.png\",\r\n    \"name\": \"\",\r\n    \"age\": -1,\r\n    \"weight\": 20,\r\n    \"story\": \"\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/characters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 19:35:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid data sent\",\n    \"details\": [\n        \"age: The age must not negative\",\n        \"name: The name must not be empty\",\n        \"story: The story must not be empty\"\n    ],\n    \"status\": \"BAD_REQUEST\",\n    \"timestamp\": \"2022-01-07T19:35:18.365+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"image\": \"/src/main/resources/static/img/character-MickeyMouse.png\",\r\n    \"name\": \"Simba\",\r\n    \"age\": 94,\r\n    \"weight\": 20,\r\n    \"story\": \"Something here\"\r\n    \r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/characters/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service update one character with the {id} specified. The successful update will return the character with its updated data."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"image\": \"/src/main/resources/static/img/character-MickeyMouse.png\",\r\n    \"name\": \"Mickey Mouse\",\r\n    \"age\": 94,\r\n    \"weight\": 20,\r\n    \"story\": \"Something here\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/characters/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 20:43:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"image\": \"/src/main/resources/static/img/character-MickeyMouse.png\",\n    \"name\": \"Mickey Mouse\",\n    \"age\": 94,\n    \"weight\": 20,\n    \"story\": \"Something here\",\n    \"movies\": null\n}"
+						},
+						{
+							"name": "Error Invalid data sent",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"image\": \"/src/main/resources/static/img/character-MickeyMouse.png\",\r\n    \"name\": \"\",\r\n    \"age\": -1,\r\n    \"weight\": 20,\r\n    \"story\": \"\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/characters/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"1"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 20:44:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid data sent\",\n    \"details\": [\n        \"name: The name must not be empty\",\n        \"story: The story must not be empty\",\n        \"age: The age must not negative\"\n    ],\n    \"status\": \"BAD_REQUEST\",\n    \"timestamp\": \"2022-01-07T20:44:35.214+00:00\"\n}"
+						},
+						{
+							"name": "Error duplicate value",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"image\": \"/src/main/resources/static/img/character-MickeyMouse.png\",\r\n    \"name\": \"Simba\",\r\n    \"age\": 94,\r\n    \"weight\": 20,\r\n    \"story\": \"Something here\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/characters/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"1"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 20:45:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Duplicated value\",\n    \"details\": [\n        \"There is already a character with the name 'Simba'\"\n    ],\n    \"status\": \"CONFLICT\",\n    \"timestamp\": \"2022-01-07T20:45:36.430+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service deletes one character with the {id} specified. The successful delete will return no content."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"6"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 20:56:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Error Character not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"20"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 20:56:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The character to delete with id 20 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-07T20:56:58.875+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ADD MOVIE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters/:idCharacter/movie/:idMovie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								":idCharacter",
+								"movie",
+								":idMovie"
+							],
+							"variable": [
+								{
+									"key": "idCharacter",
+									"value": "1"
+								},
+								{
+									"key": "idMovie",
+									"value": "3"
+								}
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service adds a movie to a character with the specified IDs: {idMovie} and {idCharacter}."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/5/movie/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"5",
+										"movie",
+										"1"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 21:28:29 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Error Character not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/20/movie/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"20",
+										"movie",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 21:29:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The character with id 20 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-07T21:29:02.209+00:00\"\n}"
+						},
+						{
+							"name": "Error Movie not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/5/movie/30",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"5",
+										"movie",
+										"30"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 21:29:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The movie with id 30 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-07T21:29:48.267+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "REMOVE MOVIE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters/:idCharacter/movie/:idMovie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								":idCharacter",
+								"movie",
+								":idMovie"
+							],
+							"variable": [
+								{
+									"key": "idCharacter",
+									"value": "1"
+								},
+								{
+									"key": "idMovie",
+									"value": "3"
+								}
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service removes a movie to a character with the specified IDs: {idMovie} and {idCharacter}."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/5/movie/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"5",
+										"movie",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 21:43:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Error Character not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/20/movie/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"20",
+										"movie",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 21:44:08 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The character with id 20 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-07T21:44:08.339+00:00\"\n}"
+						},
+						{
+							"name": "Error Movie not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/5/movie/30",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"5",
+										"movie",
+										"30"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 21:44:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The movie with id 30 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-07T21:44:37.943+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "FILTER BY NAME,AGE,MOVIES",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters/filter?name=buzz&age=28&movies=2&order=ASC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "buzz"
+								},
+								{
+									"key": "age",
+									"value": "28"
+								},
+								{
+									"key": "movies",
+									"value": "2"
+								},
+								{
+									"key": "order",
+									"value": "ASC"
+								}
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service filters all characters with the specified params: name,age,movies. The order can also be specified."
+					},
+					"response": [
+						{
+							"name": "Example filters by movies and order ASC",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/filter",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"filter"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "mickey",
+											"disabled": true
+										},
+										{
+											"key": "age",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "movies",
+											"value": "2,3",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "ASC",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 22:07:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"image\": \"/src/main/resources/static/img/character-BuzzLightyear.png\",\n        \"name\": \"Buzz Lightyear\",\n        \"age\": 28,\n        \"weight\": 2,\n        \"story\": \"Buzz Lightyear is a fictional character in the Toy Story franchise created by Disney and Pixar. He is a toy Space Ranger superhero according to the movies and an action figure in the franchise.\",\n        \"movies\": [\n            {\n                \"id\": 2,\n                \"image\": \"/src/main/resources/static/img/movie-ToyStory.jpg\",\n                \"title\": \"Toy Story\",\n                \"creationDate\": \"1996-03-14\",\n                \"rating\": 4,\n                \"characters\": [],\n                \"genre\": {\n                    \"id\": 1,\n                    \"name\": \"Animation\",\n                    \"image\": \"/src/main/resources/static/img/genre-Animation.png\"\n                },\n                \"genreId\": 1\n            },\n            {\n                \"id\": 3,\n                \"image\": \"/src/main/resources/static/img/movie-ToyStory2.jpg\",\n                \"title\": \"Toy Story 2\",\n                \"creationDate\": \"1999-12-02\",\n                \"rating\": null,\n                \"characters\": [],\n                \"genre\": {\n                    \"id\": 2,\n                    \"name\": \"Animación 3D\",\n                    \"image\": \"url\"\n                },\n                \"genreId\": 2\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"image\": \"/src/main/resources/static/img/character-Woody.png\",\n        \"name\": \"Woody\",\n        \"age\": 25,\n        \"weight\": 1,\n        \"story\": \"Sheriff Woody is a fictional pullstring cowboy rag doll who appears in the Disney/Pixar Toy Story franchise. In the movies, Woody is one of the main protagonist characters along with Buzz Lightyear.\",\n        \"movies\": [\n            {\n                \"id\": 2,\n                \"image\": \"/src/main/resources/static/img/movie-ToyStory.jpg\",\n                \"title\": \"Toy Story\",\n                \"creationDate\": \"1996-03-14\",\n                \"rating\": 4,\n                \"characters\": [],\n                \"genre\": {\n                    \"id\": 1,\n                    \"name\": \"Animation\",\n                    \"image\": \"/src/main/resources/static/img/genre-Animation.png\"\n                },\n                \"genreId\": 1\n            },\n            {\n                \"id\": 3,\n                \"image\": \"/src/main/resources/static/img/movie-ToyStory2.jpg\",\n                \"title\": \"Toy Story 2\",\n                \"creationDate\": \"1999-12-02\",\n                \"rating\": null,\n                \"characters\": [],\n                \"genre\": {\n                    \"id\": 2,\n                    \"name\": \"Animación 3D\",\n                    \"image\": \"url\"\n                },\n                \"genreId\": 2\n            }\n        ]\n    }\n]"
+						},
+						{
+							"name": "Example all filters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/characters/filter?name=buzz&age=28&movies=2&order=ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"characters",
+										"filter"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "buzz"
+										},
+										{
+											"key": "age",
+											"value": "28"
+										},
+										{
+											"key": "movies",
+											"value": "2"
+										},
+										{
+											"key": "order",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 22:14:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"image\": \"/src/main/resources/static/img/character-BuzzLightyear.png\",\n        \"name\": \"Buzz Lightyear\",\n        \"age\": 28,\n        \"weight\": 2,\n        \"story\": \"Buzz Lightyear is a fictional character in the Toy Story franchise created by Disney and Pixar. He is a toy Space Ranger superhero according to the movies and an action figure in the franchise.\",\n        \"movies\": [\n            {\n                \"id\": 2,\n                \"image\": \"/src/main/resources/static/img/movie-ToyStory.jpg\",\n                \"title\": \"Toy Story\",\n                \"creationDate\": \"1996-03-14\",\n                \"rating\": 4,\n                \"characters\": [],\n                \"genre\": {\n                    \"id\": 1,\n                    \"name\": \"Animation\",\n                    \"image\": \"/src/main/resources/static/img/genre-Animation.png\"\n                },\n                \"genreId\": 1\n            },\n            {\n                \"id\": 3,\n                \"image\": \"/src/main/resources/static/img/movie-ToyStory2.jpg\",\n                \"title\": \"Toy Story 2\",\n                \"creationDate\": \"1999-12-02\",\n                \"rating\": null,\n                \"characters\": [],\n                \"genre\": {\n                    \"id\": 2,\n                    \"name\": \"Animación 3D\",\n                    \"image\": \"url\"\n                },\n                \"genreId\": 2\n            }\n        ]\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MOVIE API REQUEST",
+			"item": [
+				{
+					"name": "GET ALL",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service returns all movies saved in the database."
+					},
+					"response": [
+						{
+							"name": "Example movies list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 22:24:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"image\": \"/src/main/resources/static/img/movie-LionKing.jpg\",\n        \"title\": \"Lion King\",\n        \"creationDate\": \"1994-06-15\"\n    },\n    {\n        \"id\": 2,\n        \"image\": \"/src/main/resources/static/img/movie-ToyStory.jpg\",\n        \"title\": \"Toy Story\",\n        \"creationDate\": \"1996-03-14\"\n    },\n    {\n        \"id\": 3,\n        \"image\": \"/src/main/resources/static/img/movie-ToyStory2.jpg\",\n        \"title\": \"Toy Story 2\",\n        \"creationDate\": \"1999-12-02\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET ONE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/movies/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service returns one movie with the {id} specified. The movie shows his characters."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 22:26:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"image\": \"/src/main/resources/static/img/movie-LionKing.jpg\",\n    \"title\": \"Lion King\",\n    \"creationDate\": \"1994-06-15\",\n    \"rating\": 5,\n    \"characters\": [\n        {\n            \"id\": 5,\n            \"image\": \"/src/main/resources/static/img/character-Simba.png\",\n            \"name\": \"Simba\",\n            \"age\": 1,\n            \"weight\": 30,\n            \"story\": \"Simba is the protagonist of Disney's The Lion King franchise. Introduced in the 1994 film The Lion King, Walt Disney Animation's 32nd animated feature, the character subsequently appears in The Lion King II: Simba's Pride (1998) and The Lion King 1½ (2004) as well as the 2019 remake of the original film.\",\n            \"movies\": null\n        },\n        {\n            \"id\": 7,\n            \"image\": \"/src/main/resources/static/img/character-Pumba.png\",\n            \"name\": \"Pumba\",\n            \"age\": 10,\n            \"weight\": 200,\n            \"story\": \"Pumbaa is a male warthog. He is the adoptive uncle of Bunga and Simba. When Simba fled the Pride Lands, he nearly died from exposure in the desert. However, Pumbaa and his best friend, Timon, rescued the cub and revived him in their jungle home. They proceeded to teach Simba the Hakuna Matata lifestyle, and he adopted it readily. Over the seasons, the three became close friends\",\n            \"movies\": null\n        }\n    ],\n    \"genre\": {\n        \"id\": 1,\n        \"name\": \"Animation\",\n        \"image\": \"/src/main/resources/static/img/genre-Animation.png\"\n    },\n    \"genreId\": 1\n}"
+						},
+						{
+							"name": "Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies/30",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"30"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 22:27:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The movie with id 30 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-07T22:27:03.840+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\": \"/src/main/resources/static/img/movie-HighSchoolMusical.jpg\",\r\n    \"title\": \"Hich School Musical\",\r\n    \"creationDate\": \"2006-01-20\",\r\n    \"characters\": [],\r\n    \"Rating\":null,\r\n    \"genreId\": \"3\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. A successful creation will return the movies with its id. Characters can be created together with the movie. Rating and GenreId can be null but characters must be a empty List \\[ \\] or a List with new characters (no created yet) .For add characters to this list use the request ADD CHARACTER."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"/src/main/resources/static/img/movie-FindingNemo.jpg\",\r\n    \"title\": \"Finding Nemo\",\r\n    \"creationDate\": \"2003-07-03\",\r\n    \"characters\": [\r\n        {\r\n            \"image\": \"/src/main/resources/static/img/character-Nemo.png\",\r\n            \"name\": \"Nemo\",\r\n            \"age\": 7,\r\n            \"weight\": 2,\r\n            \"story\": \"Nemo, a small fish, much loved and protected by his father, is lost outside the great barrier reef of Australia, after being captured by this reef, Nemo will end up in a fish tank in Sydney.\"\r\n        },\r\n        {\r\n            \"image\": \"/src/main/resources/static/img/character-Dory.jpg\",\r\n            \"name\": \"Dory\",\r\n            \"age\": 12,\r\n            \"weight\": 3,\r\n            \"story\": \"It is a very funny blue and black surgeon fish (Paracanthurus hepatus). He suffers from anterograde amnesia or short-term memory loss. Accompany Marlin in the search for her son. She is optimistic, clumsy, funny, hyperactive with out eyes and has a free spirit.\"\r\n        }\r\n    ],\r\n    \"genreId\": \"2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 23:46:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 10,\n    \"image\": \"/src/main/resources/static/img/movie-FindingNemo.jpg\",\n    \"title\": \"Finding Nemo\",\n    \"creationDate\": \"2003-07-03\",\n    \"rating\": null,\n    \"characters\": [\n        {\n            \"id\": 15,\n            \"image\": \"/src/main/resources/static/img/character-Nemo.png\",\n            \"name\": \"Nemo\",\n            \"age\": 7,\n            \"weight\": 2,\n            \"story\": \"Nemo, a small fish, much loved and protected by his father, is lost outside the great barrier reef of Australia, after being captured by this reef, Nemo will end up in a fish tank in Sydney.\",\n            \"movies\": null\n        },\n        {\n            \"id\": 16,\n            \"image\": \"/src/main/resources/static/img/character-Dory.jpg\",\n            \"name\": \"Dory\",\n            \"age\": 12,\n            \"weight\": 3,\n            \"story\": \"It is a very funny blue and black surgeon fish (Paracanthurus hepatus). He suffers from anterograde amnesia or short-term memory loss. Accompany Marlin in the search for her son. She is optimistic, clumsy, funny, hyperactive with out eyes and has a free spirit.\",\n            \"movies\": null\n        }\n    ],\n    \"genre\": null,\n    \"genreId\": 2\n}"
+						},
+						{
+							"name": "Error Invalid date format",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"/src/main/resources/static/img/movie-ToyStory3.jpg\",\r\n    \"title\": \"Toy Story 3\",\r\n    \"creationDate\": \"1999/12/02\",\r\n    \"genreId\":\"2\"\r\n    \r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 21:56:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid date\",\n    \"details\": [\n        \"The date format must be yyyy-MM-dd\"\n    ],\n    \"status\": \"BAD_REQUEST\",\n    \"timestamp\": \"2022-01-07T21:56:34.594+00:00\"\n}"
+						},
+						{
+							"name": "Error Date does not exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"/src/main/resources/static/img/movie-ToyStory3.jpg\",\r\n    \"title\": \"Toy Story 3\",\r\n    \"creationDate\": \"1999-13-40\",\r\n    \"genreId\":\"2\"\r\n    \r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 21:57:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid date\",\n    \"details\": [\n        \"That date does not exist\"\n    ],\n    \"status\": \"BAD_REQUEST\",\n    \"timestamp\": \"2022-01-07T21:57:54.366+00:00\"\n}"
+						},
+						{
+							"name": "Error Invalid data sent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"\",\r\n    \"title\": \"\",\r\n    \"creationDate\": \"1999-12-01\",\r\n    \"genreId\":\"2\"\r\n    \r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 22:00:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid data sent\",\n    \"details\": [\n        \"image: The image url must not be empty\",\n        \"title: The title must not be empty\"\n    ],\n    \"status\": \"BAD_REQUEST\",\n    \"timestamp\": \"2022-01-07T22:00:14.375+00:00\"\n}"
+						},
+						{
+							"name": "Error Genre not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"/src/main/resources/static/img/movie-HighSchoolMusical.jpg\",\r\n    \"title\": \"Hich School Musical\",\r\n    \"creationDate\": \"2006-01-20\",\r\n    \"characters\": null,\r\n    \"genreId\": \"3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 23:57:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"Does not exist a genre with id 3. The genre must be created before\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-07T23:57:27.183+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\": \"/src/main/resources/static/img/movie-LionKing.jpg\",\r\n    \"title\": \"Lion King\",\r\n    \"creationDate\": \"1994-06-15\",\r\n    \"rating\": 5,\r\n    \"genreId\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/movies/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service updates one movie with the {id} specified. The successful update will return the movie with its updated data. Characters List can't be update and you dont need sent it with the request (don't write \"characters\": \\[.....\\] ). For add or remove characters use the requests ADD CHARACTER/ REMOVE CHARACTER. For update the characters use the request UPDATE in CHARACTER API REQUEST."
+					},
+					"response": [
+						{
+							"name": "Error Movie not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"/src/main/resources/static/img/movie-HighSchoolMusical.jpg\",\r\n    \"title\": \"High School Musical\",\r\n    \"creationDate\": \"2006-01-20\",\r\n    \"characters\":[],\r\n    \"rating\": 4,\r\n    \"genreId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/movies/30",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"30"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 00:22:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The movie with id 30 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-08T00:22:52.978+00:00\"\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"/src/main/resources/static/img/movie-LionKing.jpg\",\r\n    \"title\": \"Lion King\",\r\n    \"creationDate\": \"1994-06-15\",\r\n    \"rating\": 1,\r\n    \"genreId\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/movies/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jan 2022 14:38:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"image\": \"/src/main/resources/static/img/movie-LionKing.jpg\",\n    \"title\": \"Lion King\",\n    \"creationDate\": \"1994-06-15\",\n    \"rating\": 1,\n    \"characters\": [\n        {\n            \"id\": 7,\n            \"image\": \"/src/main/resources/static/img/character-Pumba.png\",\n            \"name\": \"Pumba\",\n            \"age\": 10,\n            \"weight\": 200,\n            \"story\": \"Pumbaa is a male warthog. He is the adoptive uncle of Bunga and Simba. When Simba fled the Pride Lands, he nearly died from exposure in the desert. However, Pumbaa and his best friend, Timon, rescued the cub and revived him in their jungle home. They proceeded to teach Simba the Hakuna Matata lifestyle, and he adopted it readily. Over the seasons, the three became close friends\",\n            \"movies\": null\n        },\n        {\n            \"id\": 5,\n            \"image\": \"/src/main/resources/static/img/character-Simba.png\",\n            \"name\": \"Simba\",\n            \"age\": 1,\n            \"weight\": 30,\n            \"story\": \"Simba is the protagonist of Disney's The Lion King franchise. Introduced in the 1994 film The Lion King, Walt Disney Animation's 32nd animated feature, the character subsequently appears in The Lion King II: Simba's Pride (1998) and The Lion King 1½ (2004) as well as the 2019 remake of the original film.\",\n            \"movies\": null\n        }\n    ],\n    \"genre\": null,\n    \"genreId\": 3\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/movies/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service deletes one movie with the {id} specified. The successful delete will return no content."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies/11",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"11"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 00:26:47 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Error Movie not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies/30",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"30"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 00:27:06 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The movie to delete with id 30 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-08T00:27:06.243+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ADD CHARACTER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/movies/:idMovie/character/:idCharacter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								":idMovie",
+								"character",
+								":idCharacter"
+							],
+							"variable": [
+								{
+									"key": "idMovie",
+									"value": "1"
+								},
+								{
+									"key": "idCharacter",
+									"value": "3"
+								}
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service adds a character to a movie with the specified IDs: {idCharacter} and {idMovie}."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies/2/character/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"2",
+										"character",
+										"2"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 22:03:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Error Character not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies/2/character/20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"2",
+										"character",
+										"20"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 22:04:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The character with id 20 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-07T22:04:22.673+00:00\"\n}"
+						},
+						{
+							"name": "Error Movie not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies/30/character/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"30",
+										"character",
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 07 Jan 2022 22:04:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The movie with id 30 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-07T22:04:54.374+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "REMOVE CHARACTER",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/movies/:idMovie/character/:idCharacter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								":idMovie",
+								"character",
+								":idCharacter"
+							],
+							"variable": [
+								{
+									"key": "idMovie",
+									"value": "1"
+								},
+								{
+									"key": "idCharacter",
+									"value": "3"
+								}
+							]
+						},
+						"description": "An authorization token is required. You must authenticate before using this service. This service removes a character to a movie with the specified IDs: {idCharacter} and {idMovie}."
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies/2/character/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"2",
+										"character",
+										"3"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 00:31:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Error Movie not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies/20/character/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"20",
+										"character",
+										"3"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 00:31:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The movie with id 20 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-08T00:31:54.269+00:00\"\n}"
+						},
+						{
+							"name": "Error Character not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies/2/character/30",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"2",
+										"character",
+										"30"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 00:32:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The character with id 30 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-08T00:32:23.921+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "FILTER BY NAME,GENRES",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/movies/filter?name=l&genres=1&order=DESC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "l"
+								},
+								{
+									"key": "genres",
+									"value": "1"
+								},
+								{
+									"key": "order",
+									"value": "DESC"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example all filters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/movies/filter?name=l&genres=1&order=DESC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"movies",
+										"filter"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "l"
+										},
+										{
+											"key": "genres",
+											"value": "1"
+										},
+										{
+											"key": "order",
+											"value": "DESC"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 16:20:28 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 9,\n        \"image\": \"/src/main/resources/static/img/movie-LosTresMosqueteros.png\",\n        \"title\": \"Mickey, Donald y Goofy: Los Tres Mosqueteros\",\n        \"creationDate\": \"2004-08-03\",\n        \"rating\": null,\n        \"characters\": [],\n        \"genre\": null,\n        \"genreId\": 1\n    },\n    {\n        \"id\": 1,\n        \"image\": \"/src/main/resources/static/img/movie-LionKing.jpg\",\n        \"title\": \"Lion King\",\n        \"creationDate\": \"1994-06-15\",\n        \"rating\": 5,\n        \"characters\": [],\n        \"genre\": null,\n        \"genreId\": 1\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "GENRE API REQUEST",
+			"item": [
+				{
+					"name": "GET ALL",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/genres",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Genres list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/genres",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"genres"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 02:37:31 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Animation\",\n        \"image\": \"/src/main/resources/static/img/genre-Animation.png\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Animation 3D\",\n        \"image\": \"/src/main/resources/static/img/genre-Animation3D.jpg\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Musical\",\n        \"image\": \"/src/main/resources/static/img/genre-Musical.jpg\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET ONE",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/genres/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"genres",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/genres/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"genres",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 02:38:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"Animation 3D\",\n    \"image\": \"/src/main/resources/static/img/genre-Animation3D.jpg\"\n}"
+						},
+						{
+							"name": "Error Genre not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/genres/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"genres",
+										"4"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 02:39:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The genre with id 4 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-08T02:39:17.870+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\":\"/src/main/resources/static/img/genre-Musical.jpg\",\r\n    \"name\":\"Musical\"\r\n    \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/genres",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\":\"/src/main/resources/static/img/genre-Musical.jpg\",\r\n    \"name\":\"Musical\"\r\n    \r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/genres",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"genres"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 00:06:15 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"name\": \"Musical\",\n    \"image\": \"/src/main/resources/static/img/genre-Musical.jpg\"\n}"
+						},
+						{
+							"name": "Error Invalid data sent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\":\"/src/main/resources/static/img/genre-Musical.jpg\",\r\n    \"name\":\"\"\r\n    \r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/genres",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"genres"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 00:06:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Invalid data sent\",\n    \"details\": [\n        \"name: The name must not be empty\"\n    ],\n    \"status\": \"BAD_REQUEST\",\n    \"timestamp\": \"2022-01-08T00:06:54.770+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\":\"/src/main/resources/static/img/genre-Animation.png\",\r\n    \"name\":\"Animation 2D\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/genres/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"genres",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\":\"/src/main/resources/static/img/genre-Animation.png\",\r\n    \"name\":\"Animation 2D\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/genres/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"genres",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 02:40:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Animation 2D\",\n    \"image\": \"/src/main/resources/static/img/genre-Animation.png\"\n}"
+						},
+						{
+							"name": "Error Genre not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\":\"/src/main/resources/static/img/genre-Animation.png\",\r\n    \"name\":\"Animation 2D\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/genres/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"genres",
+										"5"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 02:41:47 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The genre with id 5 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-08T02:41:47.009+00:00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/genres/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"genres",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/genres/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"genres",
+										"3"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 02:41:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Error Genre not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZHJpYW5naDEzMjFAZ21haWwuY29tIiwiZXhwIjoxNjQxNjE4OTI0LCJpYXQiOjE2NDE1ODI5MjR9.ofMrOrLgdsXI7g0UGdAmZXbKyMw0S2_plMOsnjvbWFs",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/genres/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"genres",
+										"5"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jan 2022 02:42:06 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Data not found\",\n    \"details\": [\n        \"The genre to delete with id 5 does not exist\"\n    ],\n    \"status\": \"NOT_FOUND\",\n    \"timestamp\": \"2022-01-08T02:42:06.458+00:00\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
