@@ -8,7 +8,7 @@ La API permite conocer el mundo de Disney mediante el acceso a diversos end-poin
 
 La aplicación cuenta con servicios para gestionar los personajes, películas y géneros del mundo de Disney.
 Para acceder a ellos se requiere previamente que el usuario se registre en la aplicación y se autentique. Para esto se le entregará un token JWT válido por 10 horas.
-Dicho token es solicitado en todos los servicios de la API. Para mas detalles consultar la documentación adjunto en la carpeta postman.
+Dicho token es solicitado en todos los servicios de la API. Para más detalles consultar la documentación adjunta en la carpeta postman.
 
 Con la API podrá:
 - Usuarios (registrarse , autenticarse)
@@ -16,7 +16,7 @@ Con la API podrá:
 - Movie (crear, modificar, leer , borrar, agregar y borrar personajes)
 - Genre (crear, modificar, leer , borrar)
 
-Ademas es posible realizar busquedas por filtros (edad, peliculas, nombre, etc) y ordenar los resultados de forma ASC o DESC.
+Además es posible realizar busquedas por filtros (edad, peliculas, nombre, etc) y ordenar los resultados de forma ASC o DESC.
 
 Para la creación se utilizo:
 ```
