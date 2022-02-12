@@ -3,7 +3,7 @@ CHALLENGE BACKEND - Java Spring Boot (API)
 <img align="left" height="200px" width="200px" src="https://github.com/adriangh1321/disney-api/blob/master/alkemyLogo.svg">
 
 # Descripción
-La API permite conocer el mundo de Disney mediante el acceso a diversos end-points. La misma se desarrolló con fines educativos para presentar en la aceleración de alkemy.org.
+La API permite conocer el mundo de Disney mediante el acceso a diversos end-points. La misma se desarrolló con fines educativos para presentar en la aceleración de www.alkemy.org.
 # Detalles
 
 La aplicación cuenta con servicios para gestionar los personajes, películas y géneros del mundo de Disney.
