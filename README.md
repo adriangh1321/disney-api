@@ -1,3 +1,4 @@
+<img align="center" height="200px" width="200px" src="https://www.alkemy.org/static/media/alkemyLogo.2daef856.svg">
 # Disney_api
 CHALLENGE BACKEND - Java Spring Boot (API)
 
