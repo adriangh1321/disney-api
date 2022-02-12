@@ -1,4 +1,4 @@
-<img align="center" height="200px" width="200px" src="">
+<img align="center" height="200px" width="200px" src="https://github.com/adriangh1321/disney-api/blob/master/alkemyLogo.svg">
 # Disney_api
 CHALLENGE BACKEND - Java Spring Boot (API)
 
