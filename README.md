@@ -1,5 +1,5 @@
 # Disney_api 
-CHALLENGE BACKEND - Java Spring Boot (API)
+CHALLENGE BACKEND - Java Spring Boot (API) .Esta aplicación se desarrolló con fines educativos para presentar en la aceleración de alkemy.org 
 <img align="left" height="200px" width="200px" src="https://github.com/adriangh1321/disney-api/blob/master/alkemyLogo.svg">
 
 # Descripción
